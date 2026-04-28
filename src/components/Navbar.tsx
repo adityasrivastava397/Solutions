@@ -92,7 +92,7 @@ function Navbar() {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col p-6 space-y-6">
+        <nav className="flex flex-col p-6 space-y-6 bg-white">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
