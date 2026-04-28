@@ -1,7 +1,8 @@
 import HeroSection from '../components/HeroSection'
 import ServiceCard from '../components/ServiceCard'
 import TestimonialCard from '../components/TestimonialCard'
-import { FiClock, FiDollarSign, FiShield, FiUsers } from 'react-icons/fi'
+import SplitSection from '../components/SplitSection'
+import { FiClock, FiDollarSign, FiShield, FiUsers, FiCheckCircle } from 'react-icons/fi'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { LuDatabase, LuHeadphones, LuSettings } from 'react-icons/lu'
 
@@ -15,8 +16,8 @@ const heroContent = {
   secondaryCtaLabel: 'Contact Us',
   secondaryCtaPath: '/contact',
   imageUrl:
-    'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=80',
-  imageAlt: 'BPO team in a collaborative workspace',
+    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
+  imageAlt: 'High-energy modern call center team',
 }
 
 const services = [
@@ -84,123 +85,151 @@ const benefits = [
 const testimonials = [
   {
     quote:
-      'Solutions helped us streamline support operations and improve customer satisfaction within one quarter.',
-    name: 'Aarav Mehta',
-    role: 'Operations Manager, Nexa Retail',
+      'Solutions BPO transformed our customer support from a bottleneck into a competitive advantage. Their team is proactive, skilled, and deeply integrated into our culture.',
+    name: 'Sarah Chen',
+    role: 'VP of Operations, CloudScale',
     avatarUrl:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
   },
   {
     quote:
-      'Their team is dependable, responsive, and scalable. We reduced overhead while maintaining service quality.',
-    name: 'Sophia Williams',
-    role: 'Director of Client Success, Orbit Systems',
+      'The accuracy and speed of their data management team allowed us to scale our inventory systems globally without adding any internal headcount. Truly a remarkable partner.',
+    name: 'Marcus Thorne',
+    role: 'COO, Global Logistics Inc.',
     avatarUrl:
-      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
   },
   {
     quote:
-      'From onboarding to delivery, the process was smooth and professional. A trusted outsourcing partner.',
-    name: 'Rohan Kapoor',
-    role: 'COO, Elevate Ventures',
+      'Their technical support specialists are more knowledgeable than many of our previous in-house teams. They solved complex tickets in half the time we expected.',
+    name: 'Elena Rodriguez',
+    role: 'Director of IT, FinTech Solutions',
     avatarUrl:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
   },
 ]
 
 function HomePage() {
   return (
-    <div className="space-y-14 sm:space-y-16 lg:space-y-20">
-      <HeroSection
-        badge={heroContent.badge}
-        heading={heroContent.heading}
-        subtext={heroContent.subtext}
-        primaryCtaLabel={heroContent.primaryCtaLabel}
-        primaryCtaPath={heroContent.primaryCtaPath}
-        secondaryCtaLabel={heroContent.secondaryCtaLabel}
-        secondaryCtaPath={heroContent.secondaryCtaPath}
-        imageUrl={heroContent.imageUrl}
-        imageAlt={heroContent.imageAlt}
-      />
+    <div className="flex flex-col">
+      <div className="ds-container pt-8 sm:pt-12 lg:pt-16 animate-fade-in">
+        <HeroSection
+          badge={heroContent.badge}
+          heading={heroContent.heading}
+          subtext={heroContent.subtext}
+          primaryCtaLabel={heroContent.primaryCtaLabel}
+          primaryCtaPath={heroContent.primaryCtaPath}
+          secondaryCtaLabel={heroContent.secondaryCtaLabel}
+          secondaryCtaPath={heroContent.secondaryCtaPath}
+          imageUrl={heroContent.imageUrl}
+          imageAlt={heroContent.imageAlt}
+        />
+      </div>
 
-      <section className="space-y-7 sm:space-y-8">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            Services Preview
-          </h2>
-          <p className="max-w-2xl text-base leading-7 text-gray-600">
-            Core BPO services designed to improve productivity and support sustainable
-            growth.
-          </p>
-        </div>
+      <div className="animate-fade-up">
+        <SplitSection
+          badge="Precision Focus"
+          heading="Unmatched Operational Excellence"
+          description="We don't just process tasks; we optimize them. Our team integrates seamlessly with your workflow, providing the expertise needed to drive efficiency and reduce complexity."
+          imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+          imageAlt="Business team collaborating in a modern meeting room"
+          backgroundColor="gray"
+        >
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {['Process Optimization', 'Real-time Reporting', 'Quality Assurance', 'Scalable Teams'].map((item) => (
+              <li key={item} className="flex items-center gap-2 text-gray-700">
+                <FiCheckCircle className="text-primary h-5 w-5 shrink-0" />
+                <span className="font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </SplitSection>
+      </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              imageUrl={service.imageUrl}
-              imageAlt={service.title}
-            />
-          ))}
+      <section className="ds-section ds-section-white animate-fade-up">
+        <div className="ds-container space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="ds-h2">Core Services</h2>
+            <p className="ds-body max-w-2xl mx-auto">
+              Comprehensive BPO solutions tailored to meet the unique demands of your industry.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <ServiceCard
+                key={service.title}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="space-y-7 rounded-2xl bg-blue-50/80 p-6 sm:space-y-8 sm:p-8">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            Why Choose Us
-          </h2>
-          <p className="max-w-2xl text-base leading-7 text-gray-600">
-            We combine domain expertise, quality processes, and dedicated teams to
-            deliver measurable business outcomes.
-          </p>
-        </div>
+      <div className="animate-fade-up">
+        <SplitSection
+          badge="Global Reach"
+          heading="Scale Without Borders"
+          description="Whether you're a startup or an enterprise, our global infrastructure allows you to expand your footprint without the overhead of local operations."
+          imageUrl="https://images.unsplash.com/photo-1549923746-c502d488b3ea?auto=format&fit=crop&w=1200&q=80"
+          imageAlt="Modern customer support workstation"
+          reverse={true}
+          backgroundColor="gray"
+        />
+      </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {benefits.map((benefit) => (
-            <article
-              key={benefit.title}
-              className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-            >
-              <div className="flex items-start gap-4">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-lg text-white">
-                  {benefit.icon}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{benefit.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">
+      <section className="ds-section ds-section-white animate-fade-up">
+        <div className="ds-container space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="ds-h2">Why Partners Choose Us</h2>
+            <p className="ds-body max-w-2xl mx-auto">
+              We combine advanced technology with human expertise to deliver results that matter.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((benefit) => (
+              <article
+                key={benefit.title}
+                className="ds-card ds-card-hover group"
+              >
+                <div className="space-y-4">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    {benefit.icon}
+                  </span>
+                  <h3 className="text-xl font-bold text-gray-900">{benefit.title}</h3>
+                  <p className="ds-body text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="space-y-7 sm:space-y-8">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            Testimonials
-          </h2>
-          <p className="max-w-2xl text-base leading-7 text-gray-600">
-            Feedback from businesses that trust Solutions for consistent BPO delivery.
-          </p>
-        </div>
+      <section className="ds-section ds-section-gray animate-fade-up">
+        <div className="ds-container space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="ds-h2">What Our Clients Say</h2>
+            <p className="ds-body max-w-2xl mx-auto">
+              Real feedback from industry leaders who have transformed their operations with Solutions.
+            </p>
+          </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard
-              key={testimonial.name}
-              quote={testimonial.quote}
-              name={testimonial.name}
-              role={testimonial.role}
-              avatarUrl={testimonial.avatarUrl}
-            />
-          ))}
+          <div className="grid gap-8 lg:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.name}
+                quote={testimonial.quote}
+                name={testimonial.name}
+                role={testimonial.role}
+                avatarUrl={testimonial.avatarUrl}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </div>

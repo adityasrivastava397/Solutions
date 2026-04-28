@@ -4,6 +4,91 @@
   --color-primary: #2563eb;
 }
 
+@layer base {
+  body {
+    @apply m-0 bg-gray-50 font-sans text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .ds-container {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12;
+  }
+
+  .ds-page {
+    @apply space-y-20 sm:space-y-24 lg:space-y-32 py-16 sm:py-20 lg:py-24;
+  }
+
+  .ds-section {
+    @apply py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-12;
+  }
+
+  .ds-section-white {
+    @apply bg-white;
+  }
+
+  .ds-section-gray {
+    @apply bg-[#f9fafb];
+  }
+
+  .ds-h1 {
+    @apply text-4xl font-black leading-[1.1] tracking-tighter text-gray-950 sm:text-6xl lg:text-8xl;
+  }
+
+  .ds-h2 {
+    @apply text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-6xl;
+  }
+
+  .ds-body {
+    @apply text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-loose;
+  }
+
+  .ds-kicker {
+    @apply text-xs font-bold uppercase tracking-[0.3em] text-blue-600;
+  }
+
+  .ds-card {
+    @apply rounded-[2rem] bg-white p-8 shadow-xl shadow-gray-200/40 ring-1 ring-gray-100;
+  }
+
+  .ds-card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10;
+  }
+
+  .ds-button-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-blue-500/40 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .ds-button-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border-2 border-gray-200 bg-white px-8 py-3.5 text-sm font-bold text-gray-700 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:text-blue-600 active:scale-95;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+}
+
 body {
   margin: 0;
   font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif;

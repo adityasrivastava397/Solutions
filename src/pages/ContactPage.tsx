@@ -2,37 +2,48 @@ import ContactForm from '../components/ContactForm'
 
 function ContactPage() {
   return (
-    <div className="space-y-10 sm:space-y-12 lg:space-y-14">
-      <section className="space-y-4">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Get In Touch
-        </p>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Let&apos;s Discuss Your BPO Requirements
-        </h1>
-        <p className="max-w-3xl text-base leading-7 text-gray-600">
-          Share your requirements and our team will get back to you with a tailored
-          support plan for your business operations.
-        </p>
+    <div className="flex flex-col">
+      <section className="ds-section ds-section-white animate-fade-in">
+        <div className="ds-container space-y-6">
+          <p className="ds-kicker">Get In Touch</p>
+          <h1 className="ds-h1">Let&apos;s Discuss Your BPO Requirements</h1>
+          <p className="ds-body max-w-3xl text-lg">
+            Share your requirements and our team will get back to you with a tailored
+            support plan for your business operations.
+          </p>
+        </div>
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-3">
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-md lg:col-span-1">
-          <h2 className="text-lg font-semibold text-gray-900">Contact Information</h2>
-          <div className="mt-5 space-y-4 text-sm text-gray-600">
-            <p>
-              <span className="font-medium text-gray-800">Email:</span>{' '}
-              contact@solutionsbpo.com
-            </p>
-            <p>
-              <span className="font-medium text-gray-800">Phone:</span> +1 (000)
-              000-0000
-            </p>
-          </div>
-        </div>
+      <section className="ds-section ds-section-gray animate-fade-up">
+        <div className="ds-container">
+          <div className="grid gap-12 lg:grid-cols-3">
+            <div className="ds-card h-fit lg:col-span-1 space-y-6">
+              <h2 className="text-2xl font-bold text-gray-900">Contact Info</h2>
+              <p className="ds-body text-sm leading-relaxed">
+                Our team is ready to help you optimize your business processes. Reach out via email or phone, or fill out the form.
+              </p>
+              <div className="space-y-4 pt-4 border-t border-gray-100">
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase text-primary tracking-widest">Email</span>
+                  <span className="text-gray-900 font-medium">contact@solutionsbpo.com</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase text-primary tracking-widest">Phone</span>
+                  <span className="text-gray-900 font-medium">+1 (000) 000-0000</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase text-primary tracking-widest">Office</span>
+                  <span className="text-gray-900 font-medium">123 Business Way, Suite 400<br />New York, NY 10001</span>
+                </div>
+              </div>
+            </div>
 
-        <div className="lg:col-span-2">
-          <ContactForm />
+            <div className="lg:col-span-2">
+              <div className="ds-card animate-fade-up">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

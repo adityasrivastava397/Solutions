@@ -62,7 +62,7 @@ function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="space-y-5 rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-md sm:p-8"
+      className="ds-card space-y-5 ds-card-hover sm:p-8"
     >
       <div>
         <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
@@ -117,7 +117,7 @@ function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="ds-button-primary"
       >
         Send Message
       </button>

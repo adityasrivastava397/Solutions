@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { FiMenu, FiX, FiArrowRight } from 'react-icons/fi'
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -10,81 +11,106 @@ const navItems = [
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const closeMenuOnResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false)
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
     }
-
-    window.addEventListener('resize', closeMenuOnResize)
-
-    return () => {
-      window.removeEventListener('resize', closeMenuOnResize)
-    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `rounded-md px-3 py-2 text-sm font-medium transition-all duration-200 ${
-      isActive
-        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
-        : 'text-gray-700 hover:bg-blue-50 hover:text-primary'
-    }`
+    `relative py-2 text-sm font-semibold transition-all duration-300 ${
+      isActive ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+    } group`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/90 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/80 shadow-lg shadow-gray-200/50 backdrop-blur-xl' 
+          : 'bg-white/50 backdrop-blur-md'
+      }`}
+    >
+      <div className="ds-container flex h-20 items-center justify-between">
         <Link
           to="/"
-          className="text-2xl font-bold tracking-tight text-primary transition-all duration-300 hover:text-blue-700"
+          className="group flex items-center gap-2 text-2xl font-black tracking-tight text-gray-900"
         >
-          Solutions
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-500/30 transition-transform group-hover:rotate-6">
+            S
+          </span>
+          <span className="hidden sm:inline">Solutions</span>
         </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-gray-200/80 bg-white p-1.5 md:flex">
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} className={linkClass}>
               {item.label}
+              <span className={`absolute bottom-0 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full ${
+                location.pathname === item.path ? 'w-full' : ''
+              }`} />
             </NavLink>
           ))}
+          <Link
+            to="/contact"
+            className="ml-4 inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-2.5 text-sm font-bold text-white shadow-xl shadow-gray-900/20 transition-all hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-500/20 active:scale-95"
+          >
+            Get Started <FiArrowRight className="h-4 w-4" />
+          </Link>
         </nav>
 
+        {/* Mobile Toggle */}
         <button
           type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="inline-flex items-center rounded-md border border-gray-300 p-2 text-gray-700 transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-all hover:bg-white hover:ring-blue-500 md:hidden"
         >
-          <span className="sr-only">Open navigation menu</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-            />
-          </svg>
+          {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
         </button>
       </div>
 
-      {isOpen && (
-        <nav className="border-t border-gray-200 bg-white/95 px-4 py-3 shadow-md md:hidden">
-          <div className="flex flex-col gap-3">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={linkClass}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </div>
+      {/* Mobile Menu */}
+      <div 
+        className={`fixed inset-0 top-20 z-40 bg-white transition-transform duration-500 md:hidden ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <nav className="flex flex-col p-6 space-y-6">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className="text-2xl font-bold text-gray-900 transition-colors hover:text-blue-600"
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          <hr className="border-gray-100" />
+          <Link
+            to="/contact"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-blue-600 p-5 text-lg font-bold text-white shadow-2xl shadow-blue-500/30"
+          >
+            Get Started Now <FiArrowRight className="h-5 w-5" />
+          </Link>
         </nav>
-      )}
+      </div>
     </header>
   )
 }
