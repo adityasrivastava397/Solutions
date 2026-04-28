@@ -1,7 +1,7 @@
 import SplitSection from '../components/SplitSection'
 import ServiceCard from '../components/ServiceCard'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
-import { LuDatabase, LuHeadphones, LuSettings } from 'react-icons/lu'
+import { LuDatabase, LuHeadphones } from 'react-icons/lu'
 import { FiCheckCircle } from 'react-icons/fi'
 
 const services = [
@@ -22,15 +22,6 @@ const services = [
     imageUrl:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     features: ['Real-time Data Entry', 'Database Management', 'Data Cleaning & Validation', 'Secure Document Processing'],
-  },
-  {
-    title: 'Technical Support',
-    description:
-      'Skilled specialists providing troubleshooting assistance to maintain smooth system performance. From level 1 help desk to complex technical resolutions, we cover your technical needs.',
-    icon: <LuSettings />,
-    imageUrl:
-      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
-    features: ['Help Desk Support', 'Hardware & Software Troubleshooting', 'System Monitoring', 'Remote Assistance'],
   },
   {
     title: 'Back Office Operations',
@@ -58,7 +49,7 @@ function ServicesPage() {
 
       <section className="ds-section ds-section-white pt-0 animate-fade-up">
         <div className="ds-container">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard
                 key={service.title}
@@ -103,7 +94,7 @@ function ServicesPage() {
         </div>
       ))}
 
-      <section className="ds-section ds-section-white animate-fade-up">
+      <section className="ds-section ds-section-gray animate-fade-up">
         <div className="ds-container text-center space-y-8">
           <h2 className="ds-h2">Ready to Transform Your Operations?</h2>
           <p className="ds-body max-w-2xl mx-auto">

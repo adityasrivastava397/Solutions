@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 
 const quickLinks = [
@@ -13,16 +12,8 @@ const quickLinks = [
 const serviceLinks = [
   { label: 'Customer Support', path: '/services' },
   { label: 'Data Entry', path: '/services' },
-  { label: 'Technical Support', path: '/services' },
   { label: 'Back Office', path: '/services' },
   { label: 'Workflow Optimization', path: '/services' },
-]
-
-const socialLinks = [
-  { label: 'LinkedIn', icon: FaLinkedinIn },
-  { label: 'Facebook', icon: FaFacebookF },
-  { label: 'X', icon: FaXTwitter },
-  { label: 'Instagram', icon: FaInstagram },
 ]
 
 function Footer() {
@@ -44,18 +35,6 @@ function Footer() {
             <p className="max-w-xs text-sm leading-relaxed">
               Empowering global enterprises with scalable BPO solutions. We combine human expertise with technology to drive measurable business outcomes.
             </p>
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href="#"
-                  aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600 hover:text-white"
-                >
-                  <social.icon className="text-lg" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Services */}
@@ -96,15 +75,19 @@ function Footer() {
             <div className="space-y-4 text-sm font-medium">
               <div className="flex items-start gap-3">
                 <FiMail className="mt-1 h-5 w-5 text-blue-500" />
-                <span>contact@solutionsbpo.com</span>
+                <span className="break-all">hr_services@solutionsinfo.in</span>
               </div>
               <div className="flex items-start gap-3">
                 <FiPhone className="mt-1 h-5 w-5 text-blue-500" />
-                <span>+1 (000) 000-0000</span>
+                <span>+91 85956 32735</span>
               </div>
               <div className="flex items-start gap-3">
                 <FiMapPin className="mt-1 h-5 w-5 text-blue-500" />
-                <span>123 Business Way, Suite 400<br />New York, NY 10001</span>
+                <span>
+                  39, 1st floor, Gurunanak Pura Complex,<br />
+                  Laxmi Nagar, Opposite HDFC Bank District Center & V3S Mall,<br />
+                  Delhi – 110092
+                </span>
               </div>
             </div>
           </div>
@@ -113,7 +96,7 @@ function Footer() {
 
       <div className="border-t border-gray-900 py-8">
         <div className="ds-container flex flex-col items-center justify-between gap-4 text-xs font-semibold uppercase tracking-widest sm:flex-row">
-          <p>© {new Date().getFullYear()} Solutions BPO. All rights reserved.</p>
+          <p>© 2015 Solutions. All rights reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-blue-500 transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-blue-500 transition-colors">Privacy Policy</a>

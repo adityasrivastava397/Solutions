@@ -1,10 +1,9 @@
 import HeroSection from '../components/HeroSection'
 import ServiceCard from '../components/ServiceCard'
-import TestimonialCard from '../components/TestimonialCard'
 import SplitSection from '../components/SplitSection'
 import { FiClock, FiDollarSign, FiShield, FiUsers, FiCheckCircle } from 'react-icons/fi'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
-import { LuDatabase, LuHeadphones, LuSettings } from 'react-icons/lu'
+import { LuDatabase, LuHeadphones } from 'react-icons/lu'
 
 const heroContent = {
   badge: 'Solutions BPO',
@@ -36,14 +35,6 @@ const services = [
     icon: <LuDatabase />,
     imageUrl:
       'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Technical Support',
-    description:
-      'Experienced support teams who resolve technical issues quickly and reduce downtime.',
-    icon: <LuSettings />,
-    imageUrl:
-      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Back Office Operations',
@@ -79,33 +70,6 @@ const benefits = [
     description:
       'Round-the-clock service coverage to support global customers across time zones.',
     icon: <FiClock />,
-  },
-]
-
-const testimonials = [
-  {
-    quote:
-      'Solutions BPO transformed our customer support from a bottleneck into a competitive advantage. Their team is proactive, skilled, and deeply integrated into our culture.',
-    name: 'Sarah Chen',
-    role: 'VP of Operations, CloudScale',
-    avatarUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-  },
-  {
-    quote:
-      'The accuracy and speed of their data management team allowed us to scale our inventory systems globally without adding any internal headcount. Truly a remarkable partner.',
-    name: 'Marcus Thorne',
-    role: 'COO, Global Logistics Inc.',
-    avatarUrl:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
-  },
-  {
-    quote:
-      'Their technical support specialists are more knowledgeable than many of our previous in-house teams. They solved complex tickets in half the time we expected.',
-    name: 'Elena Rodriguez',
-    role: 'Director of IT, FinTech Solutions',
-    avatarUrl:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
   },
 ]
 
@@ -155,7 +119,7 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard
                 key={service.title}
@@ -193,7 +157,7 @@ function HomePage() {
             {benefits.map((benefit) => (
               <article
                 key={benefit.title}
-                className="ds-card ds-card-hover group"
+                className="ds-card ds-card-hover group h-full"
               >
                 <div className="space-y-4">
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl text-primary transition-colors group-hover:bg-primary group-hover:text-white">
@@ -205,29 +169,6 @@ function HomePage() {
                   </p>
                 </div>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ds-section ds-section-gray animate-fade-up">
-        <div className="ds-container space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="ds-h2">What Our Clients Say</h2>
-            <p className="ds-body max-w-2xl mx-auto">
-              Real feedback from industry leaders who have transformed their operations with Solutions.
-            </p>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.name}
-                quote={testimonial.quote}
-                name={testimonial.name}
-                role={testimonial.role}
-                avatarUrl={testimonial.avatarUrl}
-              />
             ))}
           </div>
         </div>

@@ -25,15 +25,19 @@ function ContactPage() {
               <div className="space-y-4 pt-4 border-t border-gray-100">
                 <div className="flex flex-col">
                   <span className="text-xs font-bold uppercase text-primary tracking-widest">Email</span>
-                  <span className="text-gray-900 font-medium">contact@solutionsbpo.com</span>
+                  <span className="text-gray-900 font-medium break-all">hr_services@solutionsinfo.in</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold uppercase text-primary tracking-widest">Phone</span>
-                  <span className="text-gray-900 font-medium">+1 (000) 000-0000</span>
+                  <span className="text-gray-900 font-medium">+91 85956 32735</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold uppercase text-primary tracking-widest">Office</span>
-                  <span className="text-gray-900 font-medium">123 Business Way, Suite 400<br />New York, NY 10001</span>
+                  <span className="text-gray-900 font-medium">
+                    39, 1st floor, Gurunanak Pura Complex,<br />
+                    Laxmi Nagar, Opposite HDFC Bank District Center & V3S Mall,<br />
+                    Delhi – 110092
+                  </span>
                 </div>
               </div>
             </div>

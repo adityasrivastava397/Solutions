@@ -7,12 +7,12 @@ const teamMembers = [
     bio: 'Focuses on customer onboarding, quality assurance, and long-term account growth.',
   },
   {
-    name: 'Daniel Roy',
-    role: 'Operations Manager',
+    name: 'GuruDev Chauhan',
+    role: 'Human Resources Manager',
     bio: 'Leads process optimization and service delivery across multi-functional BPO teams.',
   },
   {
-    name: 'Meera Kapoor',
+    name: 'Shiny Srivastava',
     role: 'Training Specialist',
     bio: 'Builds capability programs that keep teams aligned with client standards and KPIs.',
   },
@@ -25,7 +25,7 @@ function AboutPage() {
         <SplitSection
           badge="Our Story"
           heading="Trusted BPO Partner for Scalable Business Operations"
-          description="Solutions is a business process outsourcing company helping organizations improve efficiency, reduce operational overhead, and deliver consistent customer experiences. We provide reliable support across customer service, data management, technical assistance, and back-office operations."
+          description="Solutions is a business process outsourcing company helping organizations improve efficiency, reduce operational overhead, and deliver consistent customer experiences. We provide reliable support across customer service, data management, and back-office operations."
           imageUrl="https://images.unsplash.com/photo-1573496773905-f5b17e717f05?auto=format&fit=crop&w=1200&q=80"
           imageAlt="Diverse customer support representative smiling"
           backgroundColor="white"
@@ -57,7 +57,7 @@ function AboutPage() {
             {teamMembers.map((member) => (
               <article
                 key={member.name}
-                className="ds-card ds-card-hover group"
+                className="ds-card ds-card-hover group h-full"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-2xl font-bold text-primary transition-transform duration-300 group-hover:scale-110">
